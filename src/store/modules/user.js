@@ -13,6 +13,11 @@ const getters = {};
 const mutations = {
   setUserInfo(state, payload) {
     state.userInfo = payload.info;
+  },
+  setUserAvatar(state, payload) {
+    let newUserInfo = { ...state.userInfo, avatar: payload.avatar };
+    state.userInfo = newUserInfo;
+    window.localStorage.setItem("userInfo", JSON.stringify(newUserInfo));
   }
 };
 
@@ -78,7 +83,7 @@ const actions = {
     Toast.loading({ duration: 0, message: "加载中" });
     let formData = new FormData();
     formData.append("userId", state.userInfo.userId);
-    formData.append("avatar", state.target.files[0]);
+    formData.append("avatar", event.target.files[0]);
 
     axios
       .post("http://localhost:9090/user/profile", formData, {

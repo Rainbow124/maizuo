@@ -1,12 +1,21 @@
 <template>
     <div class="page-home-center">
-        <div class="avatar">
-            <img src="../../assets/images/avatar.png" class="avator-icon"/>
+        <div class="avatar"v-if="userInfo">
+            <div class="avator-icon">
+                <img :src="userInfo.avatar" />
+                <input type="file" @change="handleUpdAvatar" />
+            </div>
+            <div class="nickname">{{ userInfo.nickname }}</div>
 
-            <div v-if="userInfo && userInfo.username" class="nick-name">{{ userInfo.username }}</div>
-
-            <router-link v-else to="/login" tag="div" class="nick-name">立即登录</router-link>
         </div>
+        <div class="avatar" v-else>
+            <div class="avator-icon">
+                <img src="../../assets/images/avatar.png" alt="">
+            </div>
+            <router-link to="/login" tag="div" class="nick-name">立即登录</router-link>
+
+        </div>
+
 
         <ul class="my-order-tab">
             <li>
@@ -48,7 +57,7 @@
             ...mapState("user",["userInfo"])
         },
         methods: {
-            ...mapActions("user",["handleLogout"])
+            ...mapActions("user",["handleLogout","handleUpdAvatar"])
         }
 
     };
@@ -75,6 +84,22 @@
                 border-radius: 35px;
                 margin-right: 20px;
                 border: 2px solid #fff;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+
+                input {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                }
             }
 
             .nick-name {
