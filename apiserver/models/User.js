@@ -11,6 +11,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  nickname: {
+    type: String,
+    required: true
+  },
+  avatar: {
+    type: String,
+    default: "http://localhost:9090/Rainbow.jpg"
+  },
   roles: {
     type: Number,
     default: 2 //  0 - 超级管理员  1 - 管理员 2 - 普通用户

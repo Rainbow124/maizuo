@@ -19,10 +19,10 @@
             </li>
         </ul>
 
-        <div class="margin-set my-card">
+        <router-link to="/card" tag="div" class="margin-set my-card">
             <i class="iconfont icon-icon1460192062515"></i>
             <span class="label">卖座卡</span>
-        </div>
+        </router-link>
         <div class="margin-set my-red-envelope">
             <i class="iconfont icon-hongbao"></i>
             <span class="label">红包</span>
@@ -31,22 +31,26 @@
             <i class="iconfont icon-yue-copy"></i>
             <span class="label">余额</span>
         </div>
-        <div class="margin-set system-set">
+        <div class="margin-set system-set" @click="handleLogout">
             <i class="iconfont icon-shezhi"></i>
-            <span class="label">设置</span>
+            <span class="label">退出登录</span>
         </div>
     </div>
 </template>
 
 <script>
-    import { mapState } from "vuex";
+    import { mapState , mapActions} from "vuex";
 
     export default {
         name: "conter",
 
         computed: {
             ...mapState("user",["userInfo"])
+        },
+        methods: {
+            ...mapActions("user",["handleLogout"])
         }
+
     };
 </script>
 

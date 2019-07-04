@@ -51,6 +51,10 @@ export default new VueRouter({
       component: () => import("./views/login/index.vue")
     },
     {
+      path: "/card",
+      component: () => import("./views/user/card.vue")
+    },
+    {
       path: "*",
       redirect: "/films"
     }
