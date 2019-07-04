@@ -1,29 +1,33 @@
+
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+    <keep-alive :include="['home']">
+        <router-view></router-view>
+    </keep-alive>
 </template>
 
-<style lang="less">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+    import { mapActions } from 'vuex';
+
+    export default {
+        name: "App",
+
+        getters:{
+
+        },
+        methods: {
+          ...mapActions('city',['getCities'])
+        },
+        created() {
+            // 判断本地存储中是否有 cities 的数据，如果有就不发送请求
+            // let cities = window.localStorage.getItem("cities");
+            // if (!cities) {
+            //   this.getCities();
+            // }
+            this.getCities();
+        }
     }
-  }
-}
+</script>
+
+<style scoped>
+
 </style>

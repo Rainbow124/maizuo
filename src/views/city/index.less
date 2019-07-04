@@ -1,0 +1,128 @@
+@import "~@/assets/styles/common/mixins.less";
+@import "../../assets/styles/common/px2rem.less";
+
+.page-city {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .lv-indexlist {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    &__content {
+      flex: 1;
+      height: 100%;
+      overflow-y: auto;
+    }
+    &__nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: px2rem(18);
+      height: 100%;
+
+      li {
+        height: px2rem(18);
+        font-size: px2rem(12);
+        color: #191a1b;
+        padding: 0 px2rem(6);
+      }
+    }
+
+    .lv-indexsection {
+      font-size: 16px;
+
+      &__index {
+        background-color: #f4f4f4;
+        color: #797d82;
+        padding-left: px2rem(15);
+        height: px2rem(30);
+        line-height: px2rem(30);
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 px2rem(15);
+        margin-bottom: -1px;
+        li {
+          .mixin-border-bottom;
+          position: relative;
+          width: 33.33%;
+          height: px2rem(48);
+          line-height: px2rem(48);
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .recommend-city {
+      padding-left: px2rem(15);
+      padding-top: px2rem(15);
+
+      .city-index-title {
+        font-size: 13px;
+        color: #797d82;
+        margin-bottom: px2rem(10);
+      }
+
+      .city-index-detail {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .city-item-detail {
+          width: 33.33%;
+          text-align: center;
+          padding-bottom: px2rem(15);
+          box-sizing: border-box;
+          float: left;
+
+          .city-item-text {
+            height: px2rem(30);
+            line-height: px2rem(30);
+            background-color: #f4f4f4;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin: 0 px2rem(7.5);
+            font-size: 14px;
+            color: #191a1b;
+          }
+        }
+      }
+    }
+  }
+  .search_box {
+    width: 100%;
+    padding-left: px2rem(15);
+    li {
+    //.border-bottom;
+      height: px2rem(44);
+      position: relative;
+      line-height: px2rem(44);
+      color: #191a1b;
+      font-size: 14px;
+    }
+  }
+  .empty-result {
+    position: absolute;
+    top: px2rem(55);
+    width: 100%;
+    text-align: center;
+    img {
+      width: px2rem(90);
+      margin: auto;
+    }
+    p {
+      color: #bdc0c5;
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+}
