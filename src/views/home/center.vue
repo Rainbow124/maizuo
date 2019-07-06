@@ -58,7 +58,11 @@
         },
         methods: {
             ...mapActions("user",["handleLogout","handleUpdAvatar"])
-        }
+        },
+        watch: {
+
+        },
+
 
     };
 </script>

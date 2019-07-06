@@ -45,7 +45,7 @@
                         v-show="filmType==='comingSoon'"
                         class="nowPlayingFilm-detail info-col label"
                     >
-                        <span class="label">上映日期： {{ timestampToTime(film.premiereAt) }} </span>
+                        <span class="label">上映日期： {{ getTime(film.premiereAt * 1000) }} </span>
                     </div>
                 </div>
                 <div class="nowPlayingFilm-buy" style="float: right;" v-show="filmType==='nowPlaying'">购票</div>
@@ -69,21 +69,29 @@
             filmType: String
         },
         methods: {
-
-             timestampToTime (timestamp) {
-                var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
-                var Y = date.getFullYear() + '-';
-                var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
-                var D = date.getDate() + '日 ';
-                var h = date.getHours() + ':';
-                var m = date.getMinutes() + ':';
-                var s = date.getSeconds();
-                var w = date.getDay();
-                var week = ["周日","周一","周二","周三","周四","周五","周六"]+' ';
-                return   M+D;
-             },
-
-
+            //补零操作
+            addZero(num) {
+                if (parseInt(num) < 10) {
+                    num = "0" + num;
+                }
+                return num;
+            },
+            //根据时间戳计算时间
+            getTime(timestamp) {
+                var oDate = new Date(timestamp),
+                    oYear = oDate.getFullYear(),
+                    oMonth = oDate.getMonth() + 1,
+                    oDay = oDate.getDate(),
+                    oHour = oDate.getHours(),
+                    oMin = oDate.getMinutes(),
+                    oSen = oDate.getSeconds(),
+                    oTime =
+                        this.addZero(oMonth) +
+                        "月" +
+                        this.addZero(oDay) +
+                        "日";
+                return oTime;
+            },
         },
         filters: {
             actorFormat (actors=[]) {

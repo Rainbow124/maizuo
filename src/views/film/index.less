@@ -1,0 +1,317 @@
+@import "../../assets/styles/common/px2rem.less";
+
+
+.page-film{
+  width: 100%;
+  background: #f4f4f4;
+
+  .film-header{
+    position: fixed;
+    background-color: hsla(0,0%,100%,0);
+    //color: transparent;
+    transition: all .3s ease;
+    width: 100%;
+    height: px2rem(44);
+    z-index: 1;
+
+    .goBack{
+      height: px2rem(30);
+      position: absolute;
+      top: px2rem(5);
+      left: px2rem(5);
+
+      img {
+        width: px2rem(30);
+      }
+    }
+    .title{
+      display: none;
+      height: 100%;
+      line-height: px2rem(44);
+    }
+    .scroll_top{
+      display: block;
+      text-align: center;
+      height: 100%;
+      background: #ffffff;
+      line-height: px2rem(44);
+    }
+
+  }
+  .lazy-img{
+    height: px2rem(210);
+    position: relative;
+    .padding{
+      height: px2rem(210);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+  .lazy-img-wrap{
+    height: px2rem(210);
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    opacity: 0;
+
+    .target-img{
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  .film-detail{
+    //height: px2rem(207);
+    padding: px2rem(15);
+    padding-top: px2rem(12);
+    background-color: #fff;
+
+    .col{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .film-name{
+        width: px2rem(256);
+        .name{
+          color: #191a1b;
+          font-size: 18px;
+          height: px2rem(24);
+          line-height: px2rem(24);
+          margin-right: px2rem(7);
+        }
+        .item{
+          font-size: 9px;
+          color: #fff;
+          background-color: #d2d6dc;
+          height: px2rem(14);
+          line-height: px2rem(14);
+          padding: 0 2px;
+          border-radius: 2px;
+          display: inline-block;
+        }
+      }
+      .film-grade{
+        width: calc(100% - 250px);
+        text-align: right;
+        color: #ffb232;
+
+        .grade {
+          font-size: px2rem(18);
+          font-style: italic;
+        }
+        .grade-text{
+          width: calc(100% - 250px);
+          text-align: right;
+          color: #ffb232;
+          font-size: 10px;
+        }
+
+      }
+    }
+    .grey-text{
+      font-size: 13px;
+      color: #797d82;
+      margin-top: px2rem(10);
+    }
+    .film-category{
+
+    }
+    .film-premiere-time{
+
+    }
+    .test{
+      width: calc(100vw - 30px);
+      opacity: 0;
+      position: absolute;
+      top: 1px;
+      margin-left: -10000px;
+      font-size: px2rem(13);
+    }
+    .hidden{
+      height: px2rem(38)!important;
+      overflow: hidden;
+      transition: height 1s ease;
+    }
+    .show{
+      overflow: hidden;
+      transition: height 1s ease;
+    }
+    .film-synopsis{
+      margin-top: px2rem(12);
+
+      .film-synopsis_txt{
+        font-size: 13px;
+        color: #797d82;
+        line-height: px2rem(20);
+      }
+    }
+
+    .toggle{
+      text-align: center;
+      display: block;
+      height: auto;
+      width: px2rem(20);
+      margin: auto;
+      line-height: normal;
+
+      img{
+        width: px2rem(8);
+        margin: auto;
+      }
+      .upper{
+        transform:  rotate(180deg);
+        transition: all 500ms ease-in;
+      }
+    }
+
+  }
+  .actors{
+    margin-top: px2rem(10);
+    background-color: #fff;
+    .actors-title-bar{
+      width: 100%;
+      padding: px2rem(15);
+      .actors-title-text{
+        font-size: 16px;
+        text-align: left;
+        color: #191a1b;
+      }
+      span{
+        display: inline-block;
+        height: px2rem(22);
+        line-height: px2rem(22);
+      }
+    }
+    .row-scroll-wrapper{
+      overflow: hidden;
+      overflow-y: hidden;
+      height: px2rem(145);
+
+      .row-scroll-items-nav{
+        margin: 0;
+        padding-left: px2rem(15);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 110%;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        .row-scroll-item{
+          cursor: pointer;
+          display: block;
+          float: left;
+          width: px2rem(85);
+          height: px2rem(131);
+          margin-right: px2rem(10);
+          .target-img{
+              width: px2rem(85);
+              height: px2rem(85);
+              position: relative;
+              top: px2rem(44);
+              transform: translateY(-50%);
+          }
+          .actors-name{
+            padding-top: px2rem(10);
+            font-size: 12px;
+            color: #191a1b;
+            width: px2rem(85);
+            height: px2rem(18);
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+          }
+          .actors-role{
+            font-size: px2rem(10);
+            color: #797d82;
+            text-align: center;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .photo{
+    margin-top: px2rem(10);
+    margin-bottom: px2rem(60);
+    background-color: #fff;
+
+    .photos-title-bar{
+      height: px2rem(62);
+      width: 100%;
+      padding: px2rem(15);
+      display: flex;
+      justify-content: space-between;
+      span{
+        display: inline-block;
+        height: px2rem(22);
+        line-height: px2rem(22);
+      }
+      .photos-title-text{
+        font-size: 16px;
+        text-align: left;
+        color: #191a1b;
+      }
+      .photos-to-all{
+         font-size: 13px;
+         color: #797d82;
+      }
+    }
+
+    .row-scroll-wrapper{
+      overflow: hidden;
+      overflow-y: hidden;
+      height: px2rem(115);
+      .row-scroll-items-nav{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding-left: px2rem(15);
+        list-style: none;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: 110%;
+        .row-scroll-item{
+          position: relative;
+          margin-right: px2rem(10);
+          cursor: pointer;
+          display: block;
+          float: left;
+          width: px2rem(150);
+          height: px2rem(100);
+          img{
+            width: px2rem(150);
+          }
+        }
+        .photos-item-wrap{
+          //width: auto!important;
+        }
+      }
+    }
+    .photos-list{
+
+    }
+  }
+  .btn{
+    width: 100%;
+    height: px2rem(49);
+    background: #ff5f16;
+    color: #fff;
+    box-sizing: border-box;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    font-size: 16px;
+  }
+
+}

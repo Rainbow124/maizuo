@@ -66,7 +66,7 @@ const actions = {
       });
   },
 
-  getFilmList({ commit, state }, isChangeFilmType) {
+  getFilmList({ commit, state, rootState }, isChangeFilmType) {
     // 判断 isChangeFilmType
     if (isChangeFilmType) {
       // 1. 清空filmlist 而清空操作会引发一个bug
@@ -80,13 +80,14 @@ const actions = {
     axios
       .get("https://m.maizuo.com/gateway", {
         params: {
-          cityId: 440300,
+          // cityId: 440300, /*cityId 不能写死*/
+          cityId: rootState.city.curCityId,
           pageNum: state.pageNum,
           pageSize: state.pageSize,
           // type = 1 正在热映
           // type = 2 即将上映
           type: state.curFilmType === 0 ? 1 : 2,
-          k: 66161
+          k: rootState.city.k
         },
         headers: {
           "X-Client-Info":

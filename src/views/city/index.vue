@@ -74,7 +74,7 @@
         name: "city",
 
         computed: {
-            ...mapGetters("city", ["cityList", "hotCity", "indexlist", "searchList"]),
+            ...mapGetters("city", ["cityList", "hotCity", "indexlist", "searchList","curCityInfo"]),
 
             // 搜索关键字
             searchVal: {
@@ -126,6 +126,7 @@
                 this.$router.go(-1);
                 // 4. 将城市id给本地储存起来
                 window.localStorage.setItem("curCityId", cityId);
+
                 // 5. TODO 需要重新获取 影片与影院的数据
             }
         },

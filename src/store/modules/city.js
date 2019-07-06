@@ -80,6 +80,11 @@ const mutations = {
 };
 
 const actions = {
+  /**
+   * 获取城市数据
+   * @param commit
+   * @param state
+   */
   getCities({ commit, state }) {
     // 有数据就不发送请求了
     if (state.cities.length) {
@@ -97,7 +102,7 @@ const actions = {
       })
       .then(response => {
         let res = response.data;
-        console.log(res);
+        console.log(res); //eslint-disable-line
         if (res.status === 0) {
           // 1. 将城市数据给到 仓库
           commit({ type: "setCities", list: res.data.cities });
